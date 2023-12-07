@@ -1,1 +1,16 @@
-<p>day-one works!</p>
+<div>
+    <input type="text" [(ngModel)]="inputString" placeholder="Enter string" name="inputBox">
+
+    <select [(ngModel)]="separator" name="separatorSelector">
+      <option value=" ">Space</option>
+      <option value=",">Comma</option>
+      <option value=";">Semicolon</option>
+      <!-- Add other separators as needed -->
+    </select>
+    <button (click)="submit()">Submit</button>
+  </div>
+  
+  <!-- Optional: Display the result -->
+  <div *ngIf="result !== null">
+    Result: {{ result }}
+  </div>
