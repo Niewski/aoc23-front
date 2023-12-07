@@ -12,4 +12,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'aoc23-front';
+  toggleDropdown() {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if (dropdownMenu) {
+      dropdownMenu.classList.toggle('hidden');
+    }
+  }
 }

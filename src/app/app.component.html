@@ -1,8 +1,14 @@
 <nav class="bg-gray-200 p-4 shadow-md">
-  <ul class="flex space-x-4">
-    <li><a class="text-blue-500 hover:text-blue-700" routerLink="day1">Day 1</a></li>
-    <!-- Repeat for other days -->
-  </ul>
+  <div class="relative">
+    <button (click)="toggleDropdown()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none" id="dropdownButton" aria-haspopup="true" aria-expanded="true">
+      Navigation
+    </button>
+    <div class="absolute hidden text-gray-700 pt-1" id="dropdownMenu">
+      <a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" routerLink="day1">Day 1</a>
+      <a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" routerLink="day2">Day 2</a>
+      <!-- Add more links as needed -->
+    </div>
+  </div>
 </nav>
 
 <router-outlet></router-outlet>

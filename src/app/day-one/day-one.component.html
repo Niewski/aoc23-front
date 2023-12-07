@@ -1,13 +1,14 @@
-  <div>
-    <input type="text" [(ngModel)]="inputString" placeholder="Enter string" name="inputBox">
-
-    <select [(ngModel)]="separator" name="separatorSelector">
+  <div class="block mb-4">
+    <h3 class="mt-2">Input</h3>
+    <textarea class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" rows="4" [(ngModel)]="inputString" placeholder="Enter string" name="inputBox"></textarea>
+    <select [(ngModel)]="separator" name="separatorSelector" class="block px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
       <option value=" ">Space</option>
+      <option value="newline">NewLine</option>
       <option value=",">Comma</option>
       <option value=";">Semicolon</option>
       <!-- Add other separators as needed -->
     </select>
-    <button (click)="submit()">Submit</button>
+    <button (click)="submit()" class="mt-2 bg-blue-500 text-white font-bold py-2 px-4 rounded">Submit</button>
   </div>
   
   <!-- Optional: Display the result -->
