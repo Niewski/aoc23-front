@@ -5,6 +5,7 @@
   </div>
   
   <!-- Optional: Display the result -->
-  <div *ngIf="result !== null">
-    Result: {{ result }}
+  <div *ngIf="resultPartOne !== null && resultPartTwo !== null">
+    <div>Result Part One: {{ resultPartOne }}</div>
+    <div>Result Part Two: {{ resultPartTwo }}</div>
   </div>

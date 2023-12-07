@@ -1,4 +1,4 @@
-export interface IDayOneResponse {
+export interface ITwoNumberResponse {
     resultPartOne: number;
     resultPartTwo: number;
   }
