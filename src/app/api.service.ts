@@ -16,6 +16,9 @@ export class ApiService {
   solveDayTwo(input: string) {
     return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day2`, input);
   }
+  solveDayThree(input: string[][]) {
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day3`, input);
+  }
 
 }
 
