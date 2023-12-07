@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IDayOneResponse } from './day-one/iday-one-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   solveDayOne(inputs: string[]) {
-    return this.http.post<number>(`${this.baseUrl}/day1`, inputs);
+    return this.http.post<IDayOneResponse>(`${this.baseUrl}/day1`, inputs);
   }
   solveDayTwo(input: string) {
     return this.http.post<number>(`${this.baseUrl}/day2`, input);

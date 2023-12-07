@@ -13,7 +13,8 @@ import { ApiService } from '../api.service';
 export class DayOneComponent {
   inputString: string = '';
   separator: string = ' ';
-  result: number | null = null;
+  resultPartOne: number | null = null;
+  resultPartTwo: number | null = null;
   constructor(private apiService: ApiService) { }
 
   submit() {
@@ -27,12 +28,13 @@ export class DayOneComponent {
     }
     console.log('Inputs: ', inputs);
     this.apiService.solveDayOne(inputs).subscribe({
-      next: (result) => {
-        this.result = result; // Store the result to display in the template
+      next: (response) => {
+        this.resultPartOne = response.resultPartOne;
+        this.resultPartTwo = response.resultPartTwo;
       },
       error: (error) => {
         console.error('Error: ', error); // Handle the error scenario
-        this.result = null;
+        this.resultPartOne = this.resultPartTwo = null;
       },
       // Optionally, you can add a 'complete' callback if needed
       complete: () => console.log('Observable completed')
