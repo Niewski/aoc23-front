@@ -12,20 +12,12 @@ import { ApiService } from '../api.service';
 })
 export class DayOneComponent {
   inputString: string = '';
-  separator: string = ' ';
   resultPartOne: number | null = null;
   resultPartTwo: number | null = null;
   constructor(private apiService: ApiService) { }
 
   submit() {
-    var inputs = [] as string[];
-    if (this.separator === 'newline') {
-      // Handle new line as a special case
-      inputs = this.inputString.split(/\r?\n/).filter(input => input.trim() !== '');
-    } else {
-      // For other separators, use them as is
-      inputs = this.inputString.split(this.separator).filter(input => input.trim() !== '');
-    }
+    var inputs = this.inputString.split(/\r?\n/).filter(input => input.trim() !== '');
     console.log('Inputs: ', inputs);
     this.apiService.solveDayOne(inputs).subscribe({
       next: (response) => {
