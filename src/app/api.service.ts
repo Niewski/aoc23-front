@@ -10,14 +10,24 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  solveDayOne(inputs: string[]) {
-    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day1`, inputs);
+  solveDayOne(input: string) {
+    // Split the string by line breaks to create array
+    const preppedInput = input.split(/\r?\n/).filter(input => input.trim() !== '');
+    console.log('Input: ', preppedInput);
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day1`, preppedInput);
   }
   solveDayTwo(input: string) {
-    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day2`, input);
+    const preppedInput = input.trim();
+    console.log('Input: ', preppedInput);
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day2`, preppedInput);
   }
-  solveDayThree(input: string[][]) {
-    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day3`, input);
+  solveDayThree(input: string) {
+    // Split the string by line breaks to create rows
+    const rows = input.split(/\r?\n/).filter(input => input.trim() !== '');
+    // Split each row into characters to create columns
+    const preppedInput = rows.map(row => row.split(''));
+    console.log('Input: ', preppedInput);
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day3`, preppedInput);
   }
 
 }
