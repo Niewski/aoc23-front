@@ -29,6 +29,26 @@ export class ApiService {
     console.log('Input: ', preppedInput);
     return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day3`, preppedInput);
   }
+  solveDayFour(input: string) {
+    // Split the string by line breaks to create rows
+    let rows = input.split(/\r?\n/).filter(input => input.trim() !== '');
+    // Split each row into characters to create columns
+    rows = rows.map(row => {
+      const [, secondPart] = row.split(':');
+      return secondPart || ''; // Fallback in case there's no second part
+    });
+    // Split by bar, then spaces, and trim whitespace
+    const parts = rows.map(row => row.split('|').map(part => part.trim().split(/\s+/)));
+    // Filter out empty strings
+    const preppedParts = parts.map(part => part.filter(str => str));
+    // Map to numbers
+    const preppedInput = preppedParts.map((curr) => ({
+      winningNumbers: curr[0].map(numStr => +numStr),
+      myNumbers: curr[1].map(numStr => +numStr)
+    }));
+    console.log('Input: ', preppedInput);
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day4`, preppedInput);
+  }
 
 }
 
