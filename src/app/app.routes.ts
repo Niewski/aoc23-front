@@ -23,4 +23,9 @@ export const routes: Routes = [
         path: 'day4',
         component: ProblemComponent,
         data: { title: 'Day 4 Problem', submitFunction: 'solveDayFour' }
+    },
+    {
+        path: 'day5',
+        component: ProblemComponent,
+        data: { title: 'Day 5 Problem', submitFunction: 'solveDayFive' }
     },];

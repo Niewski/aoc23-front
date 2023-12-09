@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ITwoNumberResponse } from './interfaces/itwo-number-response.interface';
+import { parseStringToAlmanac } from './utils/parse.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,10 @@ export class ApiService {
     console.log('Input: ', preppedInput);
     return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day4`, preppedInput);
   }
-
+  solveDayFive(input: string) {
+    const preppedInput = parseStringToAlmanac(input);
+    console.log('Input: ', preppedInput);
+    return this.http.post<ITwoNumberResponse>(`${this.baseUrl}/day5`, preppedInput);
+  }
 }
 
